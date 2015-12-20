@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="docs-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>今天已完成任务: <span class="badge">3/20</span>, 逾期未按时完成任务数: <span class="badge">3/20</span></p>
+                    <p>本期已完成任务: <span class="badge">3/20</span></p>
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载研发计划
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 任务名称</th>
+                        <th><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 研发人员</th>
+                        <th><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 计划时间</th>
+                        <th><span class="glyphicon glyphicon-check" aria-hidden="true"></span> 完成时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    <tr class="active">
+                        <th scope="row">
+                            <label for="option-experimental">
+                                <input id="option-experimental" type="checkbox">
+                                登陆-记住用户名、密码
+                            </label>
+                        </th>
+                        <td>
+                            <span>梁昭</span></td>
+                        <td>
+                            <span>2015-12-19</span></td>
+                        <td>
+                            <span>2015-12-15</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4" style="margin-top: 40px;">
+                <p><span class="unfinished-label"></span>还未完成任务数: <strong>20</strong></p>
+                <p><span class="finished-label"></span>按时完成任务数: <strong>20</strong></p>
+                <p><span class="delayfinished-label"></span>延迟完成任务数: <strong>20</strong></p>
+                <p><span class="beforefinished-label"></span>提前完成任务数: <strong>20</strong></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/developer.js') }}"></script>
+{% endblock %}
