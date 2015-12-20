@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="docs-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>交互原型最后更新时间: <span class="label label-success">2015-12-19 11:20</span></p>
+
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                <button type="button" class="btn btn-success btn-sm" style="margin-top:-3px;">
+                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载原始交互原型
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <iframe src="http://www.baidu.com" class="col-md-12" style="height:1000px; border-width:0px;"></iframe>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/prototype.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="docs-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p>需求列表最后更新时间: <span class="label label-success">2015-12-19 11:20</span></p>
+                <p>已完成需求答疑: <span class="badge">3/20</span></p>
+            </div>
+            <div class="col-md-3" style="text-align:right">
+                <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
+                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载原始需求列表
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 docs-content">
+            {% for requirement in locals.requirements %}
+                <h3 id="cs1" class="fix-anchor">{{ requirement['module'] }}</h3>
+                {% for name in requirement['names'] %}
+                    <blockquote class="babel-callout babel-callout-warning">
+                        <h4 id="{{ name['name'] }}" class="fix-anchor">{{ name['name'] }}</h4>
+                    </blockquote>
+                    <p>{{ name['detail'].replace('\n', '<br/>')|safe }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="col-md-3">
+            <div class="sidebar affix">
+                <ul class="nav">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/requirement.js') }}"></script>
+{% endblock %}
