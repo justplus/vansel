@@ -1,94 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="docs-header">
+    <div class="docs-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>本周计划构建2个版本，分别为:
+                        <span class="label label-success">2015-12-19 11:20</span>
+                        <span class="label label-success">2015-12-19 11:20</span>
+                    </p>
+
+                    <p>已完成版本迭代计划: <span class="badge">3/20</span></p>
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
+                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载测试计划
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <p>本周计划构建2个版本，分别为:
-                    <span class="label label-success">2015-12-19 11:20</span>
-                    <span class="label label-success">2015-12-19 11:20</span>
-                </p>
-                <p>已完成版本迭代计划: <span class="badge">3/20</span></p>
+            <div class="col-md-9 docs-content">
+
+                {% for build in locals.builds %}
+                    <h3 id="build_{{ build['build_id'] }}" class="fix-anchor">Build {{ build['build_num'] }}</h3>
+                    <p>
+                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 构建时间: {{ build['build_time'] }}
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 构建内容<br/>
+                        <p style="padding-left: 20px; margin-top: -5px;">
+                            {{ build['build_content'].replace('\n', '<br/>')|safe }}
+                        </p>
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 版本质量
+                        <p style="padding-left: 20px; margin-top: -5px;">
+                            版本质量:
+                            <span>
+                                <strong>{{ build['build_quality_cn'] }}</strong>
+                            </span><br/>
+                                新增缺陷 <strong>{{ build['added_bugs'] }}</strong> 个， 其中严重缺陷 <strong>{{ build['serious_bugs'] }}</strong> 个<br/>
+                                当前仍有未处理缺陷 <strong>{{ build['remaining_bugs'] }}</strong> 个<br/>
+                        </p>
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 备注
+                        <p style="padding-left: 20px; margin-top: -5px;">
+                            {{ build['remark'] }}
+                        </p>
+                    </p>
+                {% endfor %}
             </div>
-            <div class="col-md-3" style="text-align:right">
-                <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
-                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载测试计划
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-9 docs-content">
-            <h3 id="cs1" class="fix-anchor">Build 1001</h3>
-            <table class="table">
-                    <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 构建时间</th>
-                        <th><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 构建内容</th>
-                        <th><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 版本质量</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="active">
-                        <td scope="row">
-                            Build 1001<br/>
-                            2015-12-17 09：00
-                        </td>
-                        <td>
-                            1.==============<br/>
-            2.==============<br/>
-            3.==============</td>
-                        <td>
-                            版本质量: <span style="color: red">差</span><br/>
-                        新增缺陷 10 个， 其中严重缺陷 2 个<br/>
-                        验证不通过缺陷 3 个<br/>
-                        待修复缺陷 12 个<br/>
-                        验证通过的缺陷 2 个</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-3">
+                <div class="sidebar affix">
+                    <ul class="nav">
 
-
-            <h3 id="cs2" class="fix-anchor">Build 1001</h3>
-            <table class="table">
-                    <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 构建时间</th>
-                        <th><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 构建内容</th>
-                        <th><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 版本质量</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="active">
-                        <td scope="row">
-                            Build 1001<br/>
-                            2015-12-17 09：00
-                        </td>
-                        <td>
-                            1.==============<br/>
-            2.==============<br/>
-            3.==============</td>
-                        <td>
-                            版本质量: <span style="color: red">差</span><br/>
-                        新增缺陷 10 个， 其中严重缺陷 2 个<br/>
-                        验证不通过缺陷 3 个<br/>
-                        待修复缺陷 12 个<br/>
-                        验证通过的缺陷 2 个</td>
-                    </tr>
-                    </tbody>
-                </table>
-        </div>
-        <div class="col-md-3">
-            <div class="sidebar affix">
-                <ul class="nav">
-
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block script %}
