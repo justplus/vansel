@@ -8,9 +8,10 @@
                     <p>本期已完成任务: <span class="badge">3/20</span></p>
                 </div>
                 <div class="col-md-3" style="text-align:right">
-                    <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
+                    <button type="button" class="btn btn-success btn-sm" style="margin-top:0px;">
                         <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载研发计划
                     </button>
+                    <a style="display: block; color: white; font-size: 0.5em; margin-top:10px;">图片预览版</a>
                 </div>
             </div>
         </div>
@@ -28,90 +29,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
-                    <tr class="active">
-                        <th scope="row">
-                            <label for="option-experimental">
-                                <input id="option-experimental" type="checkbox">
-                                登陆-记住用户名、密码
-                            </label>
-                        </th>
-                        <td>
-                            <span>梁昭</span></td>
-                        <td>
-                            <span>2015-12-19</span></td>
-                        <td>
-                            <span>2015-12-15</span></td>
-                    </tr>
+                    {% for task in locals.tasks %}
+                        <tr>
+                            <td>
+                                <label for="task_{{ task['task_id'] }}">
+                                     <input id="task_{{ task['task_id'] }}" type="checkbox"> {{ task['task_name'] }}
+                                </label>
+                            </td>
+                            <td>
+                                <span>{{ task['user_name'] }}</span>
+                            </td>
+                            <td>
+                                <span>{{ task['plan_date'] }}</span>
+                            </td>
+                            <td>
+                                <span>{{ task['finished_date'] }}</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

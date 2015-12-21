@@ -6,7 +6,7 @@ __email__ = 'zhaoliang@iflytek.com'
 __created__ = '15/12/19'
 
 from flask import Blueprint, render_template
-from apps.logicals import index_logical
+from apps.logicals import index_logical, developer_logical
 
 index_bluerint = Blueprint('index', __name__)
 
@@ -20,13 +20,13 @@ def requirement():
     requirements = index_logical.list_requirement()
     return render_template('requirement.html', locals=locals())
 
-
 @index_bluerint.route('/prototype')
 def prototype():
     return render_template('prototype.html', locals=locals())
 
 @index_bluerint.route('/developer')
 def developer():
+    tasks = developer_logical.list_tasks(1)
     return render_template('developer.html', locals=locals())
 
 @index_bluerint.route('/test')

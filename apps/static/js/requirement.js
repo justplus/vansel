@@ -14,17 +14,10 @@
         return str.replace(STRING_STRIP_HTML_REGEXP, '');
     };
 
-    var dasherize = function(str) {
-        return decamelize(stripHtml(str)).replace(STRING_DASHERIZE_REGEXP, '-');
-    };
-
     var headings = [];
 
     $('h3, h4').each(function(index, heading) {
         var textContent = heading.textContent;
-        //var id = dasherize(textContent);
-
-        //heading.id = id;
 
         var value = {
             el: headings,
