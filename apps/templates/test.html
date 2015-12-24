@@ -26,10 +26,10 @@
                 {% for build in locals.builds %}
                     <h3 id="build_{{ build['build_id'] }}" class="fix-anchor">Build {{ build['build_num'] }}</h3>
                     <p>
-                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 构建时间: {{ build['build_time'] }}
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 构建时间: {{ build['build_time'] }}
                     </p>
                     <p>
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 构建内容<br/>
+                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> 构建内容<br/>
                         <p style="padding-left: 20px; margin-top: -5px;">
                             {{ build['build_content'].replace('\n', '<br/>')|safe }}
                         </p>

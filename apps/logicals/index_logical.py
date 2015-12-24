@@ -9,7 +9,7 @@ import MySQLdb
 from flask import current_app
 
 
-def list_requirement():
+def list_requirement(project_id):
     try:
         result = []
         database_config = current_app.config['DATABASE_URI']
@@ -21,11 +21,16 @@ def list_requirement():
             db=database_config['db'],
             charset=database_config['charset'])
         cur = conn.cursor()
-        cur.execute('select distinct(requirement_module) from requirement')
+        cur.execute('select distinct(requirement_module) from requirement left join project_requirement '
+                    'on requirement.project_requirement_id=project_requirement.id '
+                    'where project_requirement.project_id=%s and project_requirement.id='
+                    '(select max(project_requirement.id) from project_requirement where project_id=%s)', (project_id, project_id))
         modules = cur.fetchall()
         for module in modules:
-            cur.execute('select distinct(requirement_name) from requirement '
-                        'where requirement_module=%s', module[0])
+            cur.execute('select distinct(requirement_name) from requirement left join project_requirement '
+                        'on requirement.project_requirement_id=project_requirement.id '
+                        'where requirement_module=%s and project_requirement.project_id=%s and project_requirement.id='
+                        '(select max(project_requirement.id) from project_requirement where project_id=%s)', (module[0], project_id, project_id))
             names = cur.fetchall()
             requirement_names = []
             for name in names:
