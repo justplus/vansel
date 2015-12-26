@@ -12,21 +12,19 @@
             <div class="col-md-12 docs-content">
                 <h3>更新历史
                 </h3>
-                {% for project in  session['user']['projects'] if project[0] == session['project_id'] and project[5] == 'product manager' %}
+                {% for project in  session['user']['projects'] if project[0] == session['project_id'] and project[5] == 'developer' %}
                 <button type="button" class="btn btn-success" data-toggle="modal"
                         data-target="#updateRequirementModal" style="margin: 0 0 20px 40px;">
                     <i class="glyphicon glyphicon-plus"></i>
-                    <span>更新需求列表</span>
+                    <span>更新研发计划</span>
                 </button>
             {% endfor %}
                 <ul>
                     {% for history in locals.history %}
-                    <li class="change-li">
+                    <li class="change-li" style="padding-bottom: 10px;">
                         <span>第{{ history.index }}次更新</span>
                         <span style="margin-left:10px;color:#bdc6c7">更新于{{ history.create_time }}</span>
-                        <a style="margin-left:10px;color:#c7254e;text-decoration: none" href="{{ history.requirement_url }}">下载附件</a>
-                        <a style="margin-left:10px;color:#c7254e;text-decoration: none" href="/requirement/preview/{{ history.project_requirement_id }}">预览</a>
-                        <p style="margin-top: 10px">{{'暂无更新内容' if not history.modification else history.modification.replace('\n', '<br/>')|safe }}</p>
+                        <a style="margin-left:10px;color:#c7254e;text-decoration: none" href="{{ history.mpp_url }}">下载附件</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -40,9 +38,10 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel">更新需求列表</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">更新研发计划</h4>
                 </div>
                 <div class="modal-body">
+                    <div>
                     <div id="files" class="files" style="display: inline-block;">
                         <span id="file-name"></span>
                         <span class="btn btn-success" style="margin:0 5px 0 20px; display: none;"
@@ -52,20 +51,36 @@
                     </div>
                     <span class="btn btn-success fileinput-button" id="add-btn">
                             <i class="glyphicon glyphicon-plus"></i>
-                            <span>上传文件</span>
+                            <span>上传mpp文件</span>
                             <input id="fileupload" type="file" name="file"
-                                   data-url="/{{ session['project_id'] }}/requirement/history/upload">
+                                   data-url="/{{ session['project_id'] }}/task/history/upload">
                         </span>
+                    </div>
+                    <div>
+                    <div id="files" class="files" style="display: inline-block;">
+                        <span id="file-name"></span>
+                        <span class="btn btn-success" style="margin:0 5px 0 20px; display: none;"
+                              id="upload-btn">上传</span>
+                        <span class="btn btn-danger" style="margin:0 0 0 5px; display: none;"
+                              id="cancel-btn">取消上传</span>
+                    </div>
+                        </div>
+                    <!--<span class="btn btn-success fileinput-button" id="add-btn">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>上传预览图片(可选)</span>
+                            <input id="fileupload" type="file" name="file"
+                                   data-url="/{{ session['project_id'] }}/admin/pm/upload">
+                        </span>-->
 
                     <div class="form-group" style="margin-top: 10px;">
-                        <label for="message-text" class="control-label">变更详情:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="message-text" class="control-label">研发计划:</label>
+                        <textarea class="form-control" id="message-text" style="height:280px;"></textarea>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-success" id="submit-btn"
-                            onclick="submit_modification({{ session['project_id'] }})">提交</button>
+                    <button type="button" class="btn btn-success" id="submit-btn">提交</button>
                 </div>
             </div>
         </div>
@@ -79,5 +94,5 @@
     <script src="{{ url_for('static', filename='vendors/jquery-file-upload/js/jquery.fileupload.js') }}"></script>
     <script src="{{ url_for('static', filename='vendors/jquery-file-upload/js/jquery.fileupload-process.js') }}"></script>
     <script src="{{ url_for('static', filename='vendors/jquery-file-upload/js/jquery.fileupload-ui.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/requirement-admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/developer-admin.js') }}"></script>
 {% endblock %}

@@ -4,12 +4,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <p>需求列表最后更新时间: <span class="label label-success">2015-12-19 11:20</span></p>
+                <p>本期需求已更新
+                    <a href="/{{ session['project_id'] }}/requirement/history" style="color:#f5da55; border-bottom: 1px dashed white; padding: 0 3px; text-decoration: none">
+                        {{ locals.total_update_count }}
+                    </a> 次，需求列表最后更新时间:
+                    <span class="label label-success">{{ locals.create_time }}</span></p>
                 <p>已完成需求答疑: <span class="badge">3/20</span></p>
             </div>
             <div class="col-md-3" style="text-align:right">
-                <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;">
-                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载原始需求列表
+                <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;" {% if locals.requirement_url=='' %}disabled{% endif %}>
+                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载需求列表
                 </button>
             </div>
         </div>
@@ -25,7 +29,13 @@
                     <blockquote class="babel-callout babel-callout-warning">
                         <h4 id="{{ name['name'] }}" class="fix-anchor">{{ name['name'] }}</h4>
                     </blockquote>
-                    <p>{{ name['detail'].replace('\n', '<br/>')|safe }}</p>
+                    <p>
+                    {% if name['detail'] %}
+                        {{ name['detail'].replace('\n', '<br/>')|safe }}
+                    {% else %}
+                        ...
+                    {% endif %}
+                    </p>
                 {% endfor %}
             {% endfor %}
         </div>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-9 docs-content">
+            {% for requirement in locals.requirements %}
+                <h3 id="cs1" class="fix-anchor">{{ requirement['module'] }}</h3>
+                {% for name in requirement['names'] %}
+                    <blockquote class="babel-callout babel-callout-warning">
+                        <h4 id="{{ name['name'] }}" class="fix-anchor">{{ name['name'] }}</h4>
+                    </blockquote>
+                    <p>
+                    {% if name['detail'] %}
+                        {{ name['detail'].replace('\n', '<br/>')|safe }}
+                    {% else %}
+                        ...
+                    {% endif %}
+                    </p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="col-md-3">
+            <div class="sidebar affix">
+                <ul class="nav">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

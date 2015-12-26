@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="docs-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>今天已完成任务: <span class="badge">3/20</span>, 逾期未按时完成任务数: <span class="badge">3/20</span></p>
+                    <p>本期已完成任务: <span class="badge">3/20</span></p>
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;" {% if locals.mpp_url=='' %}disabled{% endif %}>
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 添加体验问题
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/experience.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="docs-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>关于范式</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10" style="margin-top: 20px;">
+                <p style="font-size: 14px;">
+                    产品汪们是否还在发愁不知如何管理众多的文档？是否还在烦恼如何跟踪产品需求、体验问题以及线上反馈？<br/>
+                    面对产品需求变更、研发计划、测试计划凌乱不堪，项目经理是否苦于不知如何跟踪项目进展和风险？<br/>
+                    程序猿肯定还在对着凌乱不堪的需求文档抓狂，或者还在苦恼Chrome不装插件打不开交互原型，亦或Mac死忠粉打不开各种Microsoft Project文件...<br/>
+                    于是，我们迎来了<strong>范式 • 让团队协作更轻松</strong>。
+
+                    <blockquote class="babel-callout babel-callout-warning">
+                        <p style="font-size: 14px; color:#aaaaaa">范式是存在于某一科学论域内关于研究对象的基本意向。<br/>
+                            它可以用来界定什么应该被研究、什么问题应该被提出、如何对问题进行质疑以及在解释我们获得的答案时该遵循什么样的规则。<br/>
+                            范式是一科学领域内获得最广泛共识的单位，我们可以用其来区分不同的科学家共同体或亚共同体。<br/>
+                            它能够将存在于一科学中的不同范例、理论、方法和工具加以归纳、定义并相互联系起来。</p>
+                    </blockquote>
+
+                    是的，团队协作也需要相互信任、达成共识，共同帮助产品的快速迭代和成长，也帮助团队中每一个成员进步。<br/>
+                    我们都知道，团队协作中最重要的是沟通，最麻烦的是沟通，最耗时的也是沟通，因此我们花了很大的力气在消除不必要的沟通，减少沟通成本。<br/>
+                    另外，我们不希望那么快改变现有的模式：产品经理们可以仍然按照既有方式完善需求列表，上传后我们进行解析并展示。<br/>
+                    但是如果觉得传统的方式已很耗时，何不换种方式：研发组长们只要短短几句话，研发计划就一目了然了。<br/>
+                    <br/>
+                    诚然，范式还很年轻，仍然有很长的路要走，比如：<br/>
+                    <ul>
+                        <li>每次需求变更后，自动diff并标识出需求变更</li>
+                        <li>汇总研发和测试工作，按模板发送工作周报</li>
+                        <li>如果可以，我们可以再抛弃更多繁琐的工作方式</li>
+                        <li>...</li>
+                    </ul>
+
+                    如果你有更好的idea, mail我吧~<a href="mailto:zhaoliang@iflytek.com"><span style="padding: 0 5px;" class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a><br/>
+                    你也可以到github上star并fork哦<a href="https://github.com/justplus/vansel"><span style="padding: 0 5px; color:rgb(255, 203, 0)" class="glyphicon glyphicon-star" aria-hidden="true"></span></a><br/>
+
+                    <img src="{{ url_for('static', filename='images/teamwork.png') }}"/><br/>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

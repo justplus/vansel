@@ -22,3 +22,6 @@ DATABASE_URI = {
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 PROTYPE_PATH = os.path.join(ROOT_PATH, 'cache/protype')
+
+UPLOAD_FOLDER = os.path.join(ROOT_PATH, 'cache/data/')
+UPLOAD_BASE_URL = 'http://127.0.0.1/vansel/'

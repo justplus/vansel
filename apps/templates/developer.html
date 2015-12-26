@@ -8,17 +8,16 @@
                     <p>本期已完成任务: <span class="badge">3/20</span></p>
                 </div>
                 <div class="col-md-3" style="text-align:right">
-                    <button type="button" class="btn btn-success btn-sm" style="margin-top:0px;">
-                        <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载研发计划
-                    </button>
-                    <a style="display: block; color: white; font-size: 0.5em; margin-top:10px;">图片预览版</a>
+                    <button type="button" class="btn btn-success btn-sm" style="margin-top:10px;" {% if locals.mpp_url=='' %}disabled{% endif %}>
+                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 下载研发计划
+                </button>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <table class="table">
                     <thead>
                     <tr>
@@ -51,7 +50,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-4" style="margin-top: 40px;">
+            <div class="col-md-3" style="margin-top: 40px;">
                 <p><span class="unfinished-label"></span>还未完成任务数: <strong>20</strong></p>
                 <p><span class="finished-label"></span>按时完成任务数: <strong>20</strong></p>
                 <p><span class="delayfinished-label"></span>延迟完成任务数: <strong>20</strong></p>
